@@ -1,0 +1,8 @@
+/**
+ * Generates a set of style rules for the main layout.
+ */
+@include extjs-panel-ui($ui: 'connection', $ui-body-background-color: transient);
+
+h3 {
+  margin-top: 8px;
+}
