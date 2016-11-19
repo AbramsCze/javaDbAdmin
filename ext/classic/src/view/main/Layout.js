@@ -19,7 +19,7 @@ Ext.define('JavaDbAdmin.view.main.Layout', {
             items: [{
                 title: 'Console',
                 iconCls: 'x-fa fa-wpforms',
-                html: 'Console tab'
+                xtype: 'consoleOutput'
             },{
                 title: 'Result',
                 iconCls: 'x-fa fa-table',
