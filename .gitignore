@@ -5,3 +5,4 @@ target/*
 /data/*.db
 /lib/*.jar
 /lib/com
+/ext/build/*
