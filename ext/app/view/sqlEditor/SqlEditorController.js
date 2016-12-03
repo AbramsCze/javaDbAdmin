@@ -9,6 +9,7 @@ Ext.define('JavaDbAdmin.view.connect.SqlEditorController', {
     onRun: function(sqlInputId)
     {
         var sql = Ext.getCmp(sqlInputId).getValue();
+        var globalScope = this;
 
         // log sql query to console
         JavaDbAdmin.store.SystemMessages.add('Sql query > ' + sql);
@@ -23,14 +24,15 @@ Ext.define('JavaDbAdmin.view.connect.SqlEditorController', {
             },
             success: function(transport)
             {
+                // get and show sql result
                 var result = Ext.util.JSON.decode(transport.responseText, true);
-
-                console.log(result); // TODO show result
+                globalScope.fireEvent('showSqlResult', result);
             },
             failure: function(transport)
             {
-                // TODO log communication failure
-                Ext.Msg.alert("Communication fail");
+                // communication fail
+                JavaDbAdmin.store.SystemMessages.add('Connection to server failed > ' + transport.status + ':' + transport.responseText);
+                globalScope.fireEvent('refreshConsole');
             }
         });
     }

@@ -4,7 +4,6 @@
 Ext.define('JavaDbAdmin.view.console.ConsoleOutput', {
     extend: 'Ext.panel.Panel',
     xtype: 'consoleOutput',
-    id: 'consoleOutput',
 
     controller: 'consoleOutput',
 

@@ -16,20 +16,29 @@ Ext.define('JavaDbAdmin.view.console.ConsoleOutputController', {
         }
     },
 
+    statics: {
+        activateConsoleTab: function () {
+            var southTabpanel = Ext.getCmp('south-tabpanel');
+            var southConsoleTab = Ext.getCmp('south-console-tab');
+            southTabpanel.setActiveTab(southConsoleTab);
+        }
+    },
+
     // clear output
     onClear: function()
     {
-        // TODO clear messages
-        Ext.Msg.alert("Console output clear");
+        JavaDbAdmin.store.SystemMessages.data.clear();
+        this.fireEvent('refreshConsole');
     },
 
     // refresh console
     onRefresh: function()
     {
-        var container = Ext.getCmp('consoleOutput');
+        var container = Ext.getCmp('south-console-tab');
         container.removeAll(true, true);
         container.add(container.buildItems());
 
+        JavaDbAdmin.view.console.ConsoleOutputController.activateConsoleTab();
     },
 
     // getter for store items

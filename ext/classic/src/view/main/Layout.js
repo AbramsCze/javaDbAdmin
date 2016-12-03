@@ -16,14 +16,17 @@ Ext.define('JavaDbAdmin.view.main.Layout', {
         layout: 'fit',
         items: [{
             xtype: 'tabpanel',
+            id: 'south-tabpanel',
             items: [{
                 title: 'Console',
+                id: 'south-console-tab',
                 iconCls: 'x-fa fa-wpforms',
                 xtype: 'consoleOutput'
             },{
                 title: 'Result',
+                id: 'south-result-tab',
                 iconCls: 'x-fa fa-table',
-                xtype: 'testList'
+                xtype: 'resultList'
             }]
         }]
     },{
