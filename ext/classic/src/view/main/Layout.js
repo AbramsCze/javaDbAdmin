@@ -78,19 +78,11 @@ Ext.define('JavaDbAdmin.view.main.Layout', {
                 iconCls: 'x-fa fa-home',
                 html: 'Home Screen'
             },{
-                title: 'SQL Editor (1)',
+                title: 'SQL Editor',
                 iconCls: 'x-fa fa-edit',
                 layout: 'fit',
                 items: [{
                     xtype: 'sqlEditor'
-                }]
-            },{
-                title: 'SQL Editor (2)',
-                iconCls: 'x-fa fa-edit',
-                items: [{
-                    xtype: 'button',
-                    text: 'click me',
-                    cls: 'test-button'
                 }]
             }]
         }]

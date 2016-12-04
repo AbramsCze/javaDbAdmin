@@ -6,13 +6,13 @@ Ext.define('JavaDbAdmin.view.connect.SqlEditorController', {
     alias: 'controller.sqlEditor',
 
     // send sql to server
-    onRun: function(sqlInputId)
+    onRun: function()
     {
-        var sql = Ext.getCmp(sqlInputId).getValue();
+        var sql = this.getView().child('[xtype=textareafield]').getValue();
         var globalScope = this;
 
         // log sql query to console
-        JavaDbAdmin.store.SystemMessages.add('Sql query > ' + sql);
+        JavaDbAdmin.store.SystemMessages.add('(' + new Date().toLocaleTimeString() + ' SQL query) > ' + sql);
         this.fireEvent('refreshConsole');
 
         // send to server
@@ -35,5 +35,27 @@ Ext.define('JavaDbAdmin.view.connect.SqlEditorController', {
                 globalScope.fireEvent('refreshConsole');
             }
         });
+    },
+
+    // open new SQL editor tab
+    onNewTab: function()
+    {
+        var tabpanel = this.getView().up('tabpanel');
+        tabpanel.insert(this.createSqlEditorWindow());
+    },
+
+    /**
+     * Create new definition of SQL editor window.
+     * @returns {Array}
+     */
+    createSqlEditorWindow: function()
+    {
+        var sqlEditor = [];
+        sqlEditor.title = 'SQL Editor';
+        sqlEditor.iconCls = 'x-fa fa-edit';
+        sqlEditor.layout = 'fit';
+        sqlEditor.items = {xtype: 'sqlEditor'};
+        sqlEditor.closable = true;
+        return sqlEditor;
     }
 });

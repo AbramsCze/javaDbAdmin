@@ -19,6 +19,9 @@ Ext.define('JavaDbAdmin.Application', {
     
     launch: function ()
     {
+        // WAI-ARIA compatibility warnings suppressed
+        Ext.ariaWarn = Ext.emptyFn;
+
         // Check to see the current value of the connection in localStorage
         var constr = localStorage.getItem("jdbacon");
 

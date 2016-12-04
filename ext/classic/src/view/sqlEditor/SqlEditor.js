@@ -9,7 +9,6 @@ Ext.define('JavaDbAdmin.view.sqlEditor.SqlEditor', {
     layout: 'fit',
 
     items: [{
-        id: 'query',
         xtype: 'textareafield',
         emptyText: 'Insert SQL'
     }],
@@ -18,8 +17,13 @@ Ext.define('JavaDbAdmin.view.sqlEditor.SqlEditor', {
         xtype: 'button',
         iconCls: 'x-fa fa-play-circle-o',
         listeners: {
-            click: 'onRun',
-            args: ['query']
+            click: 'onRun'
+        }
+    },{
+        xtype: 'button',
+        iconCls: 'x-fa fa-window-restore',
+        listeners: {
+            click: 'onNewTab'
         }
     }]
 });

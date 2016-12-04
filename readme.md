@@ -19,5 +19,14 @@ Version is in MANIFEST.MF
     
     http://localhost:9966/javaDbAdmin/checkDriver/oracle
 ```
+## Upgrade font awesome
+
+- Download font awesome zip and decompres it
+- Replace in ext/ext/packages/font-awesome/resources/fonts files from font-awesome_decompressed_folder/fonts/
+- Replace in ext/ext/packages/font-awesome/sass/etc files from awesome_decompressed_folder/scss
+- Add //# fashion warn -elevation to start of file ext/ext/packages/font-awesome/sass/etc/_variables.scss
+- Add //# fashion warn +elevation to end of file ext/ext/packages/font-awesome/sass/etc/_variables.scss
+- Run "sencha package build" into ext/ext/packages.
+
 ## TODO How to
 
