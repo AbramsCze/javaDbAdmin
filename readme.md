@@ -29,4 +29,3 @@ Version is in MANIFEST.MF
 - Run "sencha package build" into ext/ext/packages.
 
 ## TODO How to
-
